@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Cronómetro</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0f172a, #020617);
+    color: white;
+}
+
+/* CONTENEDOR GRANDE */
+.container {
+    width: 70vw;
+    max-width: 900px;
+    padding: 40px;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    text-align: center;
+}
+
+/* FILA 1: TIEMPO */
+.time {
+    font-size: 64px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+
+    /* 🔥 FIX PRINCIPAL */
+    font-variant-numeric: tabular-nums;
+}
+
+.ms {
+    font-size: 28px;
+    opacity: 0.7;
+}
+
+/* FILA 2: BOTONES */
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+button {
+    flex: 1;
+    padding: 20px;
+    border: none;
+    border-radius: 16px;
+    font-size: 22px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.start { background: #22c55e; color: black; }
+.start.disabled {
+    background: #6b7280;
+    cursor: not-allowed;
+}
+
+.stop { background: #ef4444; color: white; }
+.stop.resume {
+    background: #3b82f6;
+}
+
+.clear { background: #facc15; color: black; }
+
+/* FILA 3: ÚLTIMO TIEMPO */
+.last-time {
+    font-size: 18px;
+    opacity: 0.8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- FILA 1 -->
+    <div class="time" id="display">
+        00:00:00<span class="ms">000</span>
+    </div>
+
+    <!-- FILA 2 -->
+    <div class="buttons">
+        <button class="start" id="startBtn">Start</button>
+        <button class="stop" id="stopBtn">Stop</button>
+        <button class="clear" id="clearBtn">Clear</button>
+    </div>
+
+    <!-- FILA 3 -->
+    <div class="last-time" id="lastTime">
+        Last stopwatch time: 00:00:00:000
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
